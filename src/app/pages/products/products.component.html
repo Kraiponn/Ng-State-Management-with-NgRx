@@ -1,0 +1,13 @@
+<div class="p-9">
+   <h1 class="font-bold text-3xl">Product List</h1>
+   <!-- <div>{{ products | json }}</div> -->
+   <div class="grid grid-cols-4 gap-5">
+      @if (error$ | async) {
+      <h1 class="text-4xl dark:text-white">Something went wrong while loading products.</h1>
+      } @else {
+      @for (item of products$ | async; track $index) {
+      <app-product-card [product]="item" (handleAdd)="addItemToCart($event)" />
+      }
+      }
+   </div>
+</div>

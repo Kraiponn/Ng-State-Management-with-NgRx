@@ -1,0 +1,27 @@
+<nav class="bg-gray-900 text-white shadow">
+   <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center text-gray-50">
+
+         @if (sidebarSignal.sidebarOpen()) {
+         <mat-icon class="dark:text-white cursor-pointer" (click)="toggle()">close</mat-icon>
+
+         }
+         @else{
+         <mat-icon class="dark:text-white cursor-pointer" (click)="toggle()">menu</mat-icon>
+         }
+
+         <span class="text-xl md:text-4xl font-semibold">
+            AMT Starter
+         </span>
+
+         <div class="flex items-center font-bold hover:text-yellow-500 gap-3">
+            <div class="">
+               <a routerLink="/products" class="no-underline">Products</a>
+            </div>
+            <button class="text-black font-bold hover:underline hidden sm:block rounded-md bg-yellow-400 px-5 py-2">Home
+               {{ count$ | async
+               }}</button>
+         </div>
+      </div>
+   </div>
+</nav>
